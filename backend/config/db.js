@@ -1,11 +1,15 @@
 import mongoose from 'mongoose'
 
+mongoose.set("strictQuery", false);
+
+/* mongoose.connect(process.env.MONGO_URL); */
+
 const connectDB = async () => {
     try {
         const conn= await mongoose.connect(process.env.MONGO_URI, {
-            useUnifiedTopology: true,
+            /* useUnifiedTopology: true,
             useNewUrlParser: true,
-            useCreateIndex: true
+            useCreateIndex: true */
         })
 
         console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline)
